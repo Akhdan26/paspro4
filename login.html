@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Login</title>
+    <link rel="stylesheet" type="text/css" href="style/login_style.css" />
+  </head>
+  <body>
+    <form class="login-form">
+      <h1>Admin Login Page</h1>
+      <div class="txtb">
+        <input type="email" id="login-email" required />
+        <span data-placeholder="Username"></span>
+      </div>
+
+      <div class="txtb">
+        <input type="password" id="login-password" required />
+        <span data-placeholder="Password"></span>
+      </div>
+
+      <input type="submit" class="logbtn" value="LOGIN" />
+    </form>
+    <!-- firebase auth -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyCyXMd3W-FbpOGCh_VxJOtcAQ-yO2YxWiw",
+        authDomain: "waskita-paspro4.firebaseapp.com",
+        databaseURL: "https://waskita-paspro4-default-rtdb.firebaseio.com",
+        projectId: "waskita-paspro4",
+        storageBucket: "waskita-paspro4.appspot.com",
+        messagingSenderId: "938258927941",
+        appId: "1:938258927941:web:39d271a08e999bcd222e2c",
+        measurementId: "G-YDGZL0CHH1",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+
+      const auth = firebase.auth();
+    </script>
+    <script src="scripts/auth.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      charset="utf-8"
+    ></script>
+    <script type="text/javascript">
+      $(".txtb input").on("focus", function () {
+        $(this).addClass("focus");
+      });
+      $(".txtb input").on("blur", function () {
+        if ($(this).val() == "") $(this).removeClass("focus");
+      });
+    </script>
+  </body>
+</html>

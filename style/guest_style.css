@@ -1,0 +1,43 @@
+h1 {
+  text-align: center;
+}
+
+table {
+  margin: auto;
+  padding-bottom: 5px;
+  position: relative;
+  margin-top: 30px;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+table td {
+  padding: 5px;
+  margin: auto;
+  text-align: left;
+  color: azure;
+}
+
+button {
+  width: 5opx;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 30px;
+  background-color: gold;
+  border-radius: 7px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+td .input {
+  border-radius: 8px;
+}
+
+/* mobile */
+@media (max-width: 575.98px) {
+  table {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  table td {
+    font-size: small;
+  }
+}

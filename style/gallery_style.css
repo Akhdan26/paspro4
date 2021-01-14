@@ -1,0 +1,273 @@
+/* HALAMAN GALLERY START */
+@media (max-width: 575.98px) {
+  #slideshow {
+    margin-top: -220px;
+  }
+}
+
+#gallery {
+  background-image: url(../img/gallery/masker.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: auto;
+  height: auto;
+  margin-top: -75px;
+  text-align: center;
+  position: relative;
+}
+#gallery::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0)
+  );
+  position: absolute;
+  bottom: 0;
+}
+
+#rig {
+  max-width: 1200px;
+  margin-top: auto;
+  padding: 0;
+  font-size: 0;
+  list-style: none;
+  background-color: none;
+}
+#rig li {
+  display: inline-block;
+  *display: inline;
+  width: 25%;
+  vertical-align: middle;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.rig-cell {
+  margin: 12px;
+  border-radius: 12px;
+  box-shadow: 3px 3px 3px 1px rgba(0, 4, 255, 0.5);
+  padding: 16px;
+  border: none;
+  color: #555;
+  background-color: white;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.rig-img1 {
+  display: block;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  height: 0;
+  padding-top: 83.461538%;
+  background-size: cover;
+  background-color: white;
+  background-image: url(../img/gallery/1.JPG);
+  background-repeat: no-repeat;
+  max-height: 50%;
+}
+
+.rig-img2 {
+  display: block;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  height: 0;
+  padding-top: 83.461538%;
+  background-size: cover;
+  background-color: white;
+  background-image: url(../img/gallery/2.JPG);
+  background-repeat: no-repeat;
+  max-height: 50%;
+}
+
+.rig-img3 {
+  display: block;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  height: 0;
+  padding-top: 83.461538%;
+  background-size: cover;
+  background-color: white;
+  background-image: url(../img/gallery/3.JPG);
+  background-repeat: no-repeat;
+  max-height: 50%;
+}
+
+.rig-img4 {
+  display: block;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  height: 0;
+  padding-top: 83.461538%;
+  background-size: cover;
+  background-color: white;
+  background-image: url(../img/gallery/4.JPG);
+  background-repeat: no-repeat;
+  max-height: 50%;
+}
+
+.rig-img5 {
+  display: block;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  height: 0;
+  padding-top: 83.461538%;
+  background-size: cover;
+  background-color: white;
+  background-image: url(../img/gallery/5.JPG);
+  background-repeat: no-repeat;
+  max-height: 50%;
+}
+
+.rig-img6 {
+  display: block;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  height: 0;
+  padding-top: 83.461538%;
+  background-size: cover;
+  background-color: white;
+  background-image: url(../img/gallery/6.JPG);
+  background-repeat: no-repeat;
+  max-height: 50%;
+}
+
+.rig-img7 {
+  display: block;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  height: 0;
+  padding-top: 83.461538%;
+  background-size: cover;
+  background-color: white;
+  background-image: url(../img/gallery/7.JPG);
+  background-repeat: no-repeat;
+  max-height: 50%;
+}
+
+.rig-img8 {
+  display: block;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  height: 0;
+  padding-top: 83.461538%;
+  background-size: cover;
+  background-color: white;
+  background-image: url(../img/gallery/8.JPG);
+  background-repeat: no-repeat;
+  max-height: 50%;
+}
+
+.rig-img9 {
+  display: block;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  height: 0;
+  padding-top: 83.461538%;
+  background-size: cover;
+  background-color: white;
+  background-image: url(../img/gallery/9.JPG);
+  background-repeat: no-repeat;
+  max-height: 50%;
+}
+
+.rig-img10 {
+  display: block;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  height: 0;
+  padding-top: 83.461538%;
+  background-size: cover;
+  background-color: white;
+  background-image: url(../img/gallery/10.JPG);
+  background-repeat: no-repeat;
+  max-height: 50%;
+}
+
+.rig-img11 {
+  display: block;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  height: 0;
+  padding-top: 83.461538%;
+  background-size: cover;
+  background-color: white;
+  background-image: url(../img/gallery/11.JPG);
+  background-repeat: no-repeat;
+  max-height: 50%;
+}
+
+.rig-img12 {
+  display: block;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  height: 0;
+  padding-top: 83.461538%;
+  background-size: cover;
+  background-color: white;
+  background-image: url(../img/gallery/12.JPG);
+  background-repeat: no-repeat;
+  max-height: 50%;
+}
+
+.rig-overlay {
+  position: absolute;
+  border-radius: 12px;
+  display: block;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  background: white;
+  background-size: 50px 50px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  transition: all 0.2s;
+}
+#rig li:hover .rig-overlay {
+  opacity: 0.5;
+}
+
+@media (max-width: 9000px) {
+  #rig li {
+    width: 25%;
+  }
+}
+@media (max-width: 800px) {
+  #rig li {
+    width: 33.33%;
+  }
+}
+@media (max-width: 500px) {
+  #rig li {
+    width: 50%;
+  }
+}
+@media (max-width: 350px) {
+  #rig li {
+    width: 100%;
+  }
+}
+/* HALAMAN GALLERY END */
