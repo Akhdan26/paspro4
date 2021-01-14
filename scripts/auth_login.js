@@ -9,7 +9,7 @@ loginForm.addEventListener('submit', (e) => {
 
   // log the user in
   auth.signInWithEmailAndPassword(email, password).then(() => {
-    window.location.href = "admin.html";
+    window.location.href = "admin.php";
   }).catch(() => {
     alert("email atau password salah!");
   }).finally(() => {
