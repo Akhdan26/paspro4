@@ -8,6 +8,10 @@ auth.onAuthStateChanged(user => {
 const logout = document.querySelector('#logout');
 logout.addEventListener('click', (e) => {
   e.preventDefault();
-  auth.signOut();
-  alert("anda telah keluar dari admin!");
+
+  if (confirm("Apakah anda yakin ingin logout?")) {
+    auth.signOut();
+    alert("Logout berhasil!");
+  }
+  
 });

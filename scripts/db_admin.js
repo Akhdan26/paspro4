@@ -2,10 +2,15 @@ const tabel_data = document.querySelector(".tabel_data");
 db.collection("tamu")
   .get()
   .then((snapshot) => {
-    var x = 1
-    snapshot.forEach((data) => {
+    if (snapshot.size == "0") {
+      document.querySelector(".table").style.display = "none";
+      document.querySelector("#datatamutext").innerHTML += " (masih kosong)";
+    } else {
+      var x = 1;
+      let html = ""
+      snapshot.forEach((data) => {
         const each_data = data.data();
-        html = `
+        html += `
             <tr>
             <th>${x}</th>
             <td>${each_data.nama}</td>
@@ -23,6 +28,8 @@ db.collection("tamu")
             <td>${each_data.p6}</td>
             </tr>   
         `;
-    });
-    tabel_data.innerHTML = html;
+        x++;
+      });
+      tabel_data.innerHTML = html;
+    }
   });
