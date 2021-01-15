@@ -14,7 +14,7 @@ db.collection("tamu")
             <tr>
             <th>${x}</th>
             <td>${each_data.nama}</td>
-            <td>${each_data.nama_prhs}</td>
+            <td>${each_data.nama_prsh}</td>
             <td>${each_data.no_hp}</td>
             <td>${each_data.suhu}</td>
             <td>${each_data.nama_peg}</td>

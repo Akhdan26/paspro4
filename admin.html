@@ -34,9 +34,6 @@
     <link rel="stylesheet" href="style/admin_style.css" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
-    <!-- reference to table2excel -->
-    <script src="scripts/table2excel.js"></script>
-
     <title>Admin WASKITA - PASPRO 4</title>
   </head>
   <body>
@@ -117,7 +114,10 @@
           <tbody class="tabel_data"></tbody>
         </table>
         <br />
-        <button class="tombol btn btn-primary" name="convert" id="convert">
+        <button
+          class="tombol btn btn-primary"
+          onclick="exportTableToExcel('table-tamu', 'Data-Tamu')"
+        >
           Convert to Excel
         </button>
       </div>
@@ -150,12 +150,8 @@
     <script src="scripts/db_admin.js"></script>
 
     <!-- script for export to excel -->
-    <script>
-      document.getElementById(convert).addEventListener("click", function () {
-        var table2excel = new Table2Excel();
-        table2excel.export(document.querySelectorAll("table-tamu"));
-      });
-    </script>
+    <script src="scripts/table2excel.js"></script>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
