@@ -36,25 +36,6 @@
     <title>Guest Book</title>
   </head>
   <body>
-    <!-- firebase database -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
-    <script>
-      var firebaseConfig = {
-        apiKey: "AIzaSyCyXMd3W-FbpOGCh_VxJOtcAQ-yO2YxWiw",
-        authDomain: "waskita-paspro4.firebaseapp.com",
-        databaseURL: "https://waskita-paspro4-default-rtdb.firebaseio.com",
-        projectId: "waskita-paspro4",
-        storageBucket: "waskita-paspro4.appspot.com",
-        messagingSenderId: "938258927941",
-        appId: "1:938258927941:web:39d271a08e999bcd222e2c",
-        measurementId: "G-YDGZL0CHH1"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-
-      const database = firebase.database();
-    </script>
     <!-- NAVBAR START -->
     <div class="navbar navbar-expand-lg navbar-light bg-transparent">
       <div class="container">
@@ -139,7 +120,10 @@
             <tr>
                 <td>Foto KTP</td>
                 <td>:</td>
-                <td><input type="file" name="foto_ktp" value="upload gambar" required></td>
+                <td><br>
+                  <img style="width: 100px; height: 100px;" id="image"/><br><br>
+                  <input id="fotoktp" type="file" name="foto_ktp" required>
+                </td>
             </tr>
              <!-- Radio Button -->
             <tr>
@@ -205,7 +189,7 @@
             <td></td>
             <td></td>
             <td>
-                <button type="submit" name="kirim">Kirim</button>
+                <button onclick="uploadImage()" type="submit" name="kirim">Kirim</button>
                 <button type="reset" name="reset">Batal</button>
             </td>
         </form>
@@ -215,6 +199,7 @@
 
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-storage.js"></script>
     <script>
       var firebaseConfig = {
         apiKey: "AIzaSyCyXMd3W-FbpOGCh_VxJOtcAQ-yO2YxWiw",
@@ -228,7 +213,32 @@
       };
 
       firebase.initializeApp(firebaseConfig);
+      console.log(firebase);
       const db = firebase.firestore();
+
+      function uploadImage() {
+        const ref = firebase.storage().ref()
+
+        const file = document.querySelector("#fotoktp").files[0]
+        
+        const name = new Date() + '-' + file.name
+
+        const metadata = {
+          contentType:file.type
+        }
+
+        const task = ref.child(name).put(file,metadata)
+
+        task
+        .then(snapshot => snapshot.ref.getDownloadURL())
+        .then(url => {
+          console.log(url)
+          alert("Image Upload Successfully")
+          const image = document.querySelector("#image")
+          image.src = url
+        })
+      }
+
     </script>
     <script src="scripts/db_gb.js"></script>
     <!-- Optional JavaScript -->
