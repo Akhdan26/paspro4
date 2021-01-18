@@ -10,6 +10,7 @@ db.collection("tamu")
       let html = ""
       snapshot.forEach((data) => {
         const each_data = data.data();
+        const ref = firebase.storage().ref()
         html += `
             <tr>
             <th>${x}</th>
@@ -19,7 +20,7 @@ db.collection("tamu")
             <td>${each_data.suhu}</td>
             <td>${each_data.nama_peg}</td>
             <td>${each_data.keperluan}</td>
-            <td>${each_data.foto_ktp}</td>
+            <td>${ref.getDownloadURL()}</td>
             <td>${each_data.p1}</td>
             <td>${each_data.p2}</td>
             <td>${each_data.p3}</td>
