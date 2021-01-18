@@ -189,7 +189,7 @@
             <td></td>
             <td></td>
             <td>
-                <button onclick="uploadImage()" type="submit" name="kirim">Kirim</button>
+                <button type="submit" name="kirim">Kirim</button>
                 <button type="reset" name="reset">Batal</button>
             </td>
         </form>
@@ -200,6 +200,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-storage.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script>
       var firebaseConfig = {
         apiKey: "AIzaSyCyXMd3W-FbpOGCh_VxJOtcAQ-yO2YxWiw",
@@ -211,35 +212,20 @@
         appId: "1:938258927941:web:39d271a08e999bcd222e2c",
         measurementId: "G-YDGZL0CHH1",
       };
-
       firebase.initializeApp(firebaseConfig);
-      console.log(firebase);
       const db = firebase.firestore();
+      const ref = firebase.storage().ref();
 
-      function uploadImage() {
-        const ref = firebase.storage().ref()
-
-        const file = document.querySelector("#fotoktp").files[0]
-        
-        const name = new Date() + '-' + file.name
-
-        const metadata = {
-          contentType:file.type
-        }
-
-        const task = ref.child(name).put(file,metadata)
-
-        task
-        .then(snapshot => snapshot.ref.getDownloadURL())
-        .then(url => {
-          console.log(url)
-          alert("Image Upload Successfully")
-          const image = document.querySelector("#image")
-          image.src = url
-        })
-      }
-
+      //show image
+      $("#fotoktp").change(function(){
+        let reader = new FileReader();
+        reader.onload = function(e) {
+          $("#image").attr("src", e.target.result);
+        };
+        reader.readAsDataURL(this.files[0]);
+      });
     </script>
+
     <script src="scripts/db_gb.js"></script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
