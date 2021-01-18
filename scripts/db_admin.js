@@ -1,11 +1,10 @@
 const tabel_data = document.querySelector(".tabel_data");
 let foto_ktp_url = {};
-let foto_ktp_huhe = [];
+let foto_ktp_list = [];
 
 db.collection("tamu")
   .get()
   .then((snapshot) => {
-    const ref = firebase.storage().ref();
     if (snapshot.size == "0") {
       document.querySelector(".table").style.display = "none";
       document.querySelector("#datatamutext").innerHTML += " (masih kosong)";
@@ -32,7 +31,7 @@ db.collection("tamu")
         <td>${each_data.p6}</td>
         </tr>   
         `;
-        foto_ktp_huhe.push(each_data.foto_ktp);
+        foto_ktp_list.push(each_data.foto_ktp);
         x++;
       });
       tabel_data.innerHTML = html;
@@ -40,7 +39,7 @@ db.collection("tamu")
   })
   .finally(() => {
     let y = 0;
-    foto_ktp_huhe.forEach((foto_ktp) => {
+    foto_ktp_list.forEach((foto_ktp) => {
       ref
         .child(foto_ktp)
         .getDownloadURL()
