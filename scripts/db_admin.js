@@ -17,7 +17,7 @@ db.collection("tamu")
       let table_html = "";
       for (let k in foto_ktp) {
         ref
-          .child(foto_ktp[k].foto_ktp)
+          .child('tamu/'+foto_ktp[k].foto_ktp)
           .getDownloadURL()
           .then((url) => {
             foto_ktp[k].foto_ktp = url;

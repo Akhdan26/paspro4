@@ -21,7 +21,7 @@ guestForm.addEventListener("submit", (e) => {
   let metadata = {
     contentType:foto_ktp_file.type,
   };
-  const task = ref.child(foto_ktp).put(foto_ktp_file,metadata);
+  const task = ref.child('tamu/'+foto_ktp).put(foto_ktp_file, metadata);
 
   if (confirm("Apakah data yang anda masukan sudah benar?")) {
     db.collection("tamu")
@@ -42,9 +42,8 @@ guestForm.addEventListener("submit", (e) => {
       })
       .then(() => {
         task
-          .then((snapshot) => snapshot.ref.getDownloadURL())
           .then(() => {
-            alert("Data anda berhasil disimpan");
+            alert("Data anda berhasil disimpan!");
           });
       });
   }
