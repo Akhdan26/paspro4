@@ -1,53 +1,53 @@
 const tabel_data = document.querySelector(".tabel_data");
-let foto_ktp_url = {};
-let foto_ktp_list = [];
+let foto_ktp = {};
 
 db.collection("tamu")
   .get()
   .then((snapshot) => {
     if (snapshot.size == "0") {
+      //run program dibawah kalo data tamu masih kosong
       document.querySelector(".table").style.display = "none";
       document.querySelector("#datatamutext").innerHTML += " (masih kosong)";
     } else {
-      let x = 0;
-      let html = "";
+      //ambil url foto ktp dari masing-masing data
       snapshot.forEach((data) => {
-        const each_data = data.data();
-        html += `
-        <tr>
-        <th>${x + 1}</th>
-        <td>${each_data.nama}</td>
-        <td>${each_data.nama_prsh}</td>
-        <td>${each_data.no_hp}</td>
-        <td>${each_data.suhu}</td>
-        <td>${each_data.nama_peg}</td>
-        <td>${each_data.keperluan}</td>
-        <td><img id="${"image" + x}" style="width: 100px; height: 100px;"/></td>
-        <td>${each_data.p1}</td>
-        <td>${each_data.p2}</td>
-        <td>${each_data.p3}</td>
-        <td>${each_data.p4}</td>
-        <td>${each_data.p5}</td>
-        <td>${each_data.p6}</td>
-        </tr>   
-        `;
-        foto_ktp_list.push(each_data.foto_ktp);
-        x++;
+        foto_ktp[data.id] = data.data();
       });
-      tabel_data.innerHTML = html;
+      let x = 0;
+      let table_html = "";
+      for (let k in foto_ktp) {
+        ref
+          .child(foto_ktp[k].foto_ktp)
+          .getDownloadURL()
+          .then((url) => {
+            foto_ktp[k].foto_ktp = url;
+          })
+          .finally(() => {
+            table_html += `
+            <tr>
+            <th>${x + 1}</th>
+            <td>${foto_ktp[k].nama}</td>
+            <td>${foto_ktp[k].nama_prsh}</td>
+            <td>${foto_ktp[k].no_hp}</td>
+            <td>${foto_ktp[k].suhu}</td>
+            <td>${foto_ktp[k].nama_peg}</td>
+            <td>${foto_ktp[k].keperluan}</td>
+            <td><img style="width: 100px; height: 100px;" src="${
+              foto_ktp[k].foto_ktp
+            }"/></td>
+            <td>${foto_ktp[k].p1}</td>
+            <td>${foto_ktp[k].p2}</td>
+            <td>${foto_ktp[k].p3}</td>
+            <td>${foto_ktp[k].p4}</td>
+            <td>${foto_ktp[k].p5}</td>
+            <td>${foto_ktp[k].p6}</td>
+            </tr>
+            `;
+            x++;
+            if (x == Object.keys(foto_ktp).length) {
+              tabel_data.innerHTML = table_html;
+            }
+          });
+      }
     }
-  })
-  .finally(() => {
-    let y = 0;
-    foto_ktp_list.forEach((foto_ktp) => {
-      ref
-        .child(foto_ktp)
-        .getDownloadURL()
-        .then((url) => {
-          foto_ktp_url["image" + y] = url;
-          var each = document.getElementById("image" + y);
-          each.src = foto_ktp_url["image" + y];
-          y++;
-        });
-    });
   });
