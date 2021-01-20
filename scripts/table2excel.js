@@ -1,6 +1,6 @@
-function exportTableToExcel(tableID, filename = ''){
+function exportToExcel(tableID, filename = ''){
     var downloadLink;
-    var dataType = 'application/vnd.ms-excel';
+    var dataType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
     var tableSelect = document.getElementById(tableID);
     var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
     
