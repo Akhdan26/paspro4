@@ -10,7 +10,7 @@ guestForm.addEventListener("submit", (e) => {
   let keperluan = guestForm["keperluan"].value;
 
   let foto_ktp_file = document.querySelector("#fotoktp").files[0];
-  let foto_ktp = new Date().toString();
+  let foto_ktp = Math.random().toString(36).substr(2, 9);
   let metadata = {
     contentType:foto_ktp_file.type,
   };

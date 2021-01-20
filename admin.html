@@ -108,12 +108,38 @@
           <tbody class="tabel_data"></tbody>
         </table>
         <br />
+        <a id="dlink"  style="display:none;"></a>
         <button
           class="tombol btn bg-success"
-          onclick="exportToExcel('table-tamu', 'Data-Tamu')"
+          onclick="tableToExcel('table-tamu2', 'guest', 'guest-data.xls')"
         >
           Convert to Excel
         </button>
+      </div>
+    </section>
+
+    <section id="datatamu">
+      <div class="container-about" style="display: none;">
+        <table
+          id="table-tamu2"
+          class="table table-dark table-hover"
+          style="margin: auto; width: 50%; padding: 10px"
+        >
+          <thead>
+            <tr>
+              <th scope="col">No.</th>
+              <th scope="col">Nama</th>
+              <th scope="col">Nama Perusahaan</th>
+              <th scope="col">No HP</th>
+              <th scope="col">Suhu</th>
+              <th scope="col">Nama Pegawai</th>
+              <th scope="col">Keperluan</th>
+              <th scope="col">Foto KTP</th>
+            </tr>
+          </thead>
+          <tbody class="tabel_data2"></tbody>
+        </table>
+        <br />
       </div>
     </section>
 
