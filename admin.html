@@ -53,7 +53,7 @@
           >
         </div>
         <button
-          class="navbar-toggler btn-outline-warning custom-toggler ml-auto"
+          class="navbar-toggler bg-warning btn-outline-warning custom-toggler ml-auto"
           type="button"
           data-toggle="collapse"
           data-target="#navbarNavAltMarkup"
@@ -103,22 +103,19 @@
               <th scope="col">Nama Pegawai</th>
               <th scope="col">Keperluan</th>
               <th scope="col">Foto KTP</th>
-              <th scope="col">P1</th>
-              <th scope="col">P2</th>
-              <th scope="col">P3</th>
-              <th scope="col">P4</th>
-              <th scope="col">P5</th>
-              <th scope="col">P6</th>
             </tr>
           </thead>
           <tbody class="tabel_data"></tbody>
         </table>
         <br />
         <button
-          class="tombol btn btn-primary"
+          class="tombol btn bg-success"
           onclick="exportTableToExcel('table-tamu', 'Data-Tamu')"
         >
           Convert to Excel
+        </button>
+        <button class="tombol btn btn-primary" id="pdfExport">
+          Convert to PDF
         </button>
       </div>
     </section>
@@ -154,7 +151,34 @@
     <!-- script for export to excel -->
     <script src="scripts/table2excel.js"></script>
 
-    <!-- Optional JavaScript -->
+    <!-- PDF JavaScript -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"
+    ></script>
+
+    <script type="text/javascript">
+      $("body").on("click", "#pdfExport", function () {
+        html2canvas($("#table-tamu")[0], {
+          onrendered: function (canvas) {
+            var data = canvas.toDataURL();
+            var docDefinition = {
+              content: [
+                {
+                  image: data,
+                  width: 500,
+                },
+              ],
+            };
+            pdfMake.createPdf(docDefinition).download("guest-data.pdf");
+          },
+        });
+      });
+    </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"

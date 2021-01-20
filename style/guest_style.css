@@ -3,12 +3,10 @@ h1 {
 }
 
 table {
-  margin: auto;
   padding-bottom: 5px;
-  position: relative;
-  margin-top: 30px;
-  margin-left: 60px;
-  margin-right: 60px;
+  margin-left: 330px;
+  margin-top: auto;
+  margin-right: auto;
 }
 
 table td {
@@ -35,7 +33,7 @@ td .input {
 @media (max-width: 575.98px) {
   table {
     margin-left: 20px;
-    margin-right: 20px;
+    margin-right: auto;
   }
   table td {
     font-size: small;

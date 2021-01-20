@@ -35,12 +35,6 @@ db.collection("tamu")
             <td><img style="width: 100px; height: 100px;" src="${
               foto_ktp[k].foto_ktp
             }"/></td>
-            <td>${foto_ktp[k].p1}</td>
-            <td>${foto_ktp[k].p2}</td>
-            <td>${foto_ktp[k].p3}</td>
-            <td>${foto_ktp[k].p4}</td>
-            <td>${foto_ktp[k].p5}</td>
-            <td>${foto_ktp[k].p6}</td>
             </tr>
             `;
             x++;
