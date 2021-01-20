@@ -114,9 +114,6 @@
         >
           Convert to Excel
         </button>
-        <button class="tombol btn btn-primary" id="pdfExport">
-          Convert to PDF
-        </button>
       </div>
     </section>
 
@@ -150,36 +147,7 @@
 
     <!-- script for export to excel -->
     <script src="scripts/table2excel.js"></script>
-    <script src="scripts/xlsx.full.min.js"></script>
 
-    <!-- PDF JavaScript -->
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"
-    ></script>
-
-    <script type="text/javascript">
-      $("body").on("click", "#pdfExport", function () {
-        html2canvas($("#table-tamu")[0], {
-          onrendered: function (canvas) {
-            var data = canvas.toDataURL();
-            var docDefinition = {
-              content: [
-                {
-                  image: data,
-                  width: 500,
-                },
-              ],
-            };
-            pdfMake.createPdf(docDefinition).download("guest-data.pdf");
-          },
-        });
-      });
-    </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
