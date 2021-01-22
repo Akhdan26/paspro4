@@ -20,8 +20,8 @@ guestForm.addEventListener("submit", (e) => {
   const task = ref.child('tamu/'+foto_ktp).put(foto_ktp_file, metadata);
   
   if (suhu > 37.5) {
-    keterangan = 'SAKIT'
-  } else if (suhu = 37.5) {
+    keterangan = 'SAKIT';
+  } else if (suhu == 37.5) {
     keterangan = 'DIAWASI'
   } else {
     keterangan = 'SEHAT GAN'
