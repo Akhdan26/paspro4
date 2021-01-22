@@ -21,13 +21,19 @@ db.collection("tamu")
       let table_html2 = "";
       for (let k in foto_ktp) {
         ref
+          .child("surat_sehat/" + foto_ktp[k].foto_surat)
+          .getDownloadURL()
+          .then((url1) => {
+            foto_ktp[k].foto_surat = url1;
+          })
+        ref
           .child("tamu/" + foto_ktp[k].foto_ktp)
           .getDownloadURL()
           .then((url) => {
             foto_ktp[k].foto_ktp = url;
           })
           .finally(() => {
-            //table_data
+
             table_html += `
             <tr>
             <th>${x + 1}</th>
@@ -40,6 +46,10 @@ db.collection("tamu")
             <td><img style="width: 100px; height: 100px;" src="${
               foto_ktp[k].foto_ktp
             }"/></td>
+            <td><img style="width: 100px; height: 100px;" src="${
+              foto_ktp[k].foto_surat
+            }"/></td>
+            <td>${foto_ktp[k].keterangan}</td>
             </tr>
             `;
             //table_data2
@@ -53,6 +63,8 @@ db.collection("tamu")
             <td>${foto_ktp2[k].nama_peg}</td>
             <td>${foto_ktp2[k].keperluan}</td>
             <td>${foto_ktp2[k].foto_ktp}</td>
+            <td>${foto_ktp2[k].foto_surat}</td>
+            <td>${foto_ktp2[k].keterangan}</td>
             </tr>
             `;
             x++;
