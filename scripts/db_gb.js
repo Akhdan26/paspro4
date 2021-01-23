@@ -24,7 +24,7 @@ guestForm.addEventListener("submit", (e) => {
   } else if (suhu == 37.5) {
     keterangan = 'DIAWASI'
   } else {
-    keterangan = 'SEHAT GAN'
+    keterangan = 'SEHAT'
   }
 
   if (confirm("Apakah data yang anda masukan sudah benar?")) {
